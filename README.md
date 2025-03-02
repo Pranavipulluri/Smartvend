@@ -82,6 +82,7 @@ Refer to the backend repository for setup instructions.
 
 ---
 
+
 ## Usage
 
 ### User Flow
@@ -158,6 +159,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
-## Contact
+## Contributors
 
-Project Link: [https://github.com/your-username/smartvend](https://github.com/your-username/smartvend)
+- Goutham-> Teamleader
+- Pranavi -> Developer
+- Sarvani -> Developer
