@@ -1,93 +1,163 @@
-SmartVend: Sanitary Pad Vending Machine Web App
+# SmartVend: Digital Sanitary Pad Vending System
 
-SmartVend is a web-based interface for a smart sanitary pad vending machine. This application allows users to select and purchase sanitary pads through a simple and seamless interface, while also providing an admin portal to manage stock and monitor low-stock alerts.
+## Overview
 
-Features
+SmartVend is a modern solution for digitalizing sanitary pad vending machines, ensuring seamless access to menstrual hygiene products. By integrating digital payment methods, inventory tracking, and real-time monitoring, SmartVend enhances both user convenience and operational efficiency.
 
-User Side
+The system consists of a web interface for users to purchase products and an admin panel for inventory management, making hygiene products more accessible while ensuring efficient maintenance and restocking.
 
-Sanitary Pad Selection: Users can choose the number of pads (up to a maximum of 5 at a time).
+---
 
-Real-Time Stock Display: Shows available pads in the machine.
+## Features
 
-Payment Integration: Razorpay gateway integration for smooth and secure transactions.
+- **User-Friendly Interface**: Simple UI for selecting quantity and completing purchases
+- **Digital Payments**: Integrated with Razorpay for secure UPI transactions
+- **Real-Time Inventory Tracking**: Automatic monitoring of available products
+- **Low Stock Alerts**: Automated notifications when inventory reaches threshold levels
+- **Admin Dashboard**: For restocking and managing machines
+- **Machine Identification**: Each machine has a unique ID for location tracking
+- **Mobile Responsive**: Accessible on any device
 
-Dispensing Simulation: Visual feedback showing the dispensing process.
+---
 
-Low Stock Alert: Notifies admin when stock falls below a certain threshold.
+## Tech Stack
 
-Admin Side
+- **Frontend**: React.js, TailwindCSS
+- **Payment Gateway**: Razorpay
+- **Backend**: Node.js/Express.js (implied from API endpoints)
+- **Authentication**: Admin password protection
 
-Authentication: Admin login with a password.
+---
 
-Stock Management: Add or set available pad count.
+## Installation
 
-Low Stock Notification: Backend alert when pads are running low.
+### Prerequisites
 
-Tech Stack
+- Node.js (v14 or higher)
+- npm or yarn
+- Razorpay account for payment processing
 
-Frontend: React.js, Tailwind CSS
+### Setup Steps
 
-Backend: Node.js, Express
-
-Database: Firebase (for future stock management)
-
-Payment Gateway: Razorpay
-
-Setup and Installation
-
-Clone the repository:
-
-git clone https://github.com/your-repo-url/smartvend.git
+1. Clone the repository:
+```bash
+git clone https://github.com/your-username/smartvend.git
 cd smartvend
+```
 
-Install dependencies:
-
+2. Install dependencies:
+```bash
 npm install
+# or
+yarn install
+```
 
-Run the development server:
+3. Configure environment variables:
+Create a `.env` file in the root directory with the following variables:
+```
+REACT_APP_RAZORPAY_KEY=your_razorpay_key
+REACT_APP_BACKEND_URL=http://localhost:5000
+```
 
+4. Start the development server:
+```bash
 npm start
+# or
+yarn start
+```
 
-Backend Setup: (Ensure your backend server is running)
+5. The application should now be running at `http://localhost:3000`
 
-cd backend
-npm install
-node server.js
+---
 
-Environment Variables
+## Backend Setup (Required)
 
-Create a .env file in the root directory and add:
+The frontend expects a backend server running at `http://localhost:5000` with the following endpoints:
 
-REACT_APP_RAZORPAY_KEY=your_razorpay_public_key
-BACKEND_URL=http://localhost:5000
+- `POST /create-order`: Creates a new payment order
+- `POST /verify-payment`: Verifies payment completion
+- `POST /low-stock-alert`: Sends notifications when stock is low
 
-API Endpoints
+Refer to the backend repository for setup instructions.
 
-Create Order: POST /create-order
+---
 
-Verify Payment: POST /verify-payment
+## Usage
 
-Low Stock Alert: POST /low-stock-alert
+### User Flow
 
-Future Enhancements
+1. User selects the number of pads required (1-5)
+2. System displays the total cost
+3. User clicks "Proceed to Payment" button
+4. Razorpay payment gateway opens
+5. After successful payment, the machine dispenses the selected number of pads
 
-Firebase integration for real-time stock updates.
+### Admin Flow
 
-More secure admin authentication.
+1. Click the "Admin" button in the top-right corner
+2. Enter the admin password (default: "admin123")
+3. Choose to either add to existing inventory or set a new total
+4. Enter the quantity
+5. Click "Add Inventory" or "Update Inventory" to save changes
 
-Improved UI/UX.
+---
 
-Enhanced error handling.
+## Security
 
-License
+- Admin access is protected by password authentication
+- Payments are processed securely through Razorpay
+- Machine IDs are unique to prevent tampering
 
-This project is licensed under the MIT License.
+---
 
-Contributors
+## Deployment
 
-Goutham - Team leader
-Pranavi - Developer
-Sarvani - Developer
+To build the application for production:
 
-SmartVend: Making hygiene accessible, one pad at a time.
+```bash
+npm run build
+# or
+yarn build
+```
+
+The build artifacts will be stored in the `build/` directory, ready to be deployed to a web server.
+
+---
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+---
+
+## Future Enhancements
+
+- **Mobile App**: Development of a companion app to display machine locations and available stock
+- **Analytics Dashboard**: For tracking usage patterns and optimizing inventory management
+- **Multiple Product Support**: Expanding to support different types of hygiene products
+- **QR Code Integration**: For faster access to specific machines
+- **User Accounts**: Optional accounts for frequent users with purchase history
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+---
+
+## Acknowledgments
+
+- Razorpay for payment gateway integration
+- TailwindCSS for the UI components
+- React.js community for the frontend framework
+
+---
+
+## Contact
+
+Project Link: [https://github.com/your-username/smartvend](https://github.com/your-username/smartvend)
